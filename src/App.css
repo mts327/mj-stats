@@ -1,38 +1,159 @@
-.App {
-  text-align: center;
+.horizonal {
+    display: -webkit-flex;
+    display: flex;
+    /* flex-direction: column; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.content {
+    flex-basis: 80%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.parent-ul {
+    list-style: none;
+    padding: 0 1%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.child-ul {
+    list-style: none;
+    padding-left: 5%;
 }
 
-.App-link {
-  color: #61dafb;
+.parent-ul li,
+.child-ul li {
+    color: #eee;
+    border-left: solid 6px #ccc; 
+    border-top: solid 1px #bbb;
+    border-bottom: solid 1px #bbb;
+    background: #eee;
+    line-height: 2.5;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.parent-ul li {
+    padding: 0.5em 0 0.5em 0.5em;
+    border-right: solid 1px #bbb;
+}
+
+.link{
+    color: black;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: #777;
+}
+
+.hamburger-menu {
+    flex-basis: 20%;
+}
+
+.hamburger-menu input{
+    display: none;
+}
+
+@media screen and (max-width: 910px) {
+    .horizonal{
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .menu-btn {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        height: 60px;
+        width: 60px;
+        justify-content: center;
+        align-items: center;
+        z-index: 90;
+        background-color: #bbb
+    }
+    .menu-btn span,
+    .menu-btn span:before,
+    .menu-btn span:after {
+        content: '';
+        display: block;
+        height: 3px;
+        width: 25px;
+        border-radius: 3px;
+        background-color: #ffffff;
+        position: absolute;
+    }
+    .menu-btn span:before {
+        bottom: 8px;
+    }
+    .menu-btn span:after {
+        top: 8px;
+    }
+        
+    #menu-btn-check {
+        display: none;
+    }
+
+    .side-menu {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 100%;/*leftの値を変更してメニューを画面外へ*/
+        z-index: 80;
+        background-color: #fff;
+        transition: all 0.5s;/*アニメーション設定*/
+        overflow: auto;
+    }
+    .parent-ul {
+        padding: 70px 10px 0;
+    }
+    .parent-ul li {
+        border-bottom: solid 1px #ffffff;
+        list-style: none;
+    }
+    .parent-ul li .link {
+        display: block;
+        width: 100%;
+        font-size: 15px;
+        box-sizing: border-box;
+        color:#000;
+        text-decoration: none;
+        padding: 9px 15px 10px 0;
+        position: relative;
+    }
+    .parent-ul li .link::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-top: solid 2px #ffffff;
+        border-right: solid 2px #ffffff;
+        transform: rotate(45deg);
+        position: absolute;
+        right: 11px;
+        top: 16px;
+    }
+
+
+    #menu-btn-check:checked ~ .side-menu {
+        left: 0;/*メニューを画面内へ*/
+    }
+
+    #menu-btn-check:checked ~ .menu-btn span {
+        background-color: rgba(255, 255, 255, 0);/*メニューオープン時は真ん中の線を透明にする*/
+    }
+    #menu-btn-check:checked ~ .menu-btn span::before {
+        bottom: 0;
+        transform: rotate(45deg);
+    }
+    #menu-btn-check:checked ~ .menu-btn span::after {
+        top: 0;
+        transform: rotate(-45deg);
+    }
+
+    .content {
+        margin-top: 70px;
+    }
 }

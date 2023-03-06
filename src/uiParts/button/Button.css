@@ -1,0 +1,21 @@
+.button {
+    display: inline-block;
+    font-weight: bold;
+    background: #333;
+    color: #fff;
+    height: 40px;
+    font-size: 13px;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    /*   border-bottom: solid 4px #627295; */
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.button:active {
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px); /*下に動く*/
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2); /*影を小さく*/
+    border-bottom: none;
+  }
